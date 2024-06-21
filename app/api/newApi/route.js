@@ -6,7 +6,7 @@ export const GET = async (req,res) => {
     const limit = 10;
     console.log(query);
     try {
-        const res = await axios.get(`https://newsapi.org/v2/everything?q=${query}&pageSize=${limit}&page=${page}&apiKey=0420ca8d6a1044ad95d804746a5b776f`);
+        const res = await axios.get(`https://newsapi.org/v2/everything?q=${query}&pageSize=${limit}&page=${page}&apiKey=${process.env.NEXT_PUBLIC_NEWSAPI}`);
         const data = res.data;
         return NextResponse.json(data, { status: 200 });
     } catch (error) {
